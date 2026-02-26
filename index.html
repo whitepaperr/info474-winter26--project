@@ -12,45 +12,49 @@
     <div id='graphic'>
       <div id='sections'>
         <section class="step" data-active-index="0">
-          <div class="title">INFO 474 Final Project</div>
-          Here is a template to work on your final project.<br /><br />
-          Your mission is to create an <b>interactive article using P5.js</b>.
+          <div class="title">Rising Tuition, Rising Debt</div>
+          This is our INFO 474 final project: interactive article using P5.js.<br /><br />
+          <p>
+            College is often described as an investment, but the price of that investment has changed a lot.
+            In this interactive article, we look at U.S. tuition trends and total student loan debt over time
+            using NCES and FRED data.
+          </p>
+          <p>
+            <b>Team:</b> Ariel, An, Tony
+          </p>
         </section>
         <section class="step" data-active-index="1">
-          <div class="title">Sections</div>
-          Note that each section in index.html corresponds to a section in the
-          scrolling article. You can add or remove sections as needed.
+          <div class="title">Tuition over time</div>
+          Public and private 4-year tuition both rise over time. We also plot the average to show the overall trend.
+          Hover to see exact values by year.
         </section>
         <section class="step" data-active-index="2">
-          <div class="title">No visualization</div>
-          You don't need to have a visualization for every section. Some sections may simply be text.
+          <div class="title">Average tuition vs Total student loan debt</div>
+          Here, we compare the average tuition trend with total U.S. student loan debt.
+          Note the different units on the left vs right axis.
         </section>
         <section class="step" data-active-index="3">
-          <div class="title">Narrative</div>
-          These sections will tell a story. You can use them to explain the visualization, provide context,
-          or share insights.
+          <div class="title">Year Comparison</div>
+          To summarize the change, we compare the first year to the last year using an index (start year = 100).
+          This makes the growth easier to compare across measures.
         </section>
         <section class="step" data-active-index="4">
-          <div class="title">Be creative</div>
-          Surprise your readers with interesting interactions, animations, or data visualizations.
+          <div class="title">Which grew faster? (index gap)</div>
+          This chart shows the difference between debt growth and average tuition growth each year (index-based).
+          Values above zero mean debt grew faster than tuition.
         </section>
         <section class="step" data-active-index="5">
-          <div class="title">Same visualization multiple sections</div>
-          Some visualizations may be relevant to multiple sections. You can reuse the same visualization
-          across different sections to reinforce key points. Or build on the previous visualization to just add on.
+          <div class="title">YoY Change Heatmap</div>
+          Darker cells mean larger year-over-year changes. This helps spot periods with especially large shifts.
+          Hover a year to see the exact YoY values.
         </section>
-        <div id="extra-space">
-        </div>
+        <div id="extra-space"></div>
         <section class="step" data-active-index="6">
-          <div class="title">Examples</div>
-          There is two examples in this code. One is a grid of circles that changes color
-          based on the section index. The other is a scatter plot and bar chart that
-          shows random data points. You can modify or replace these examples with your own visualizations.
-          Make sure you read both source files to understand how they work.
+          <div class="title">LAST VISUALIZATION IDEA</div>
+          ---
         </section>
         <section class="step" data-active-index="7">
-          <div class="title">Best of Luck in the Project!</div>
-          You are now ready to start building your interactive article. Good luck!
+          <div class="title">Thanks!</div>
         </section>
       </div>
       <div id='vis' class='vis-hidden'>
@@ -79,6 +83,7 @@
 
   <!-- sketches (renderers): UPDATE HERE FOR PROJECT -->
   <script src="js/sketches/viz/viz_title.js"></script>
+    <script src="js/sketches/viz/viz_line.js"></script>
   <script src="js/sketches/viz/viz_scatter.js"></script>
   <script src="js/sketches/viz/viz_bar.js"></script>
   <script src="js/sketches/sketch_renderer.js"></script>
