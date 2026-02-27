@@ -70,6 +70,11 @@
         draw: function (p, manager, ai, progress) {
             try { console.log('Renderer: delegating draw, ai=', ai); } catch (e) { }
 
+            // Hide year-comparison controls whenever we are NOT on step 3
+            if (ai !== 3 && window.VizLine && window.VizLine.hideControls) {
+                window.VizLine.hideControls(manager);
+            }
+
             if (ai === 0) { window.VizTitle.draw(p, manager, ai, progress); return; }
             if (ai === 1) { window.VizLine.draw(p, manager, ai, progress); return; }
             if (ai === 2) { window.VizLine.draw(p, manager, ai, progress); return; }

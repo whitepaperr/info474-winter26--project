@@ -211,6 +211,9 @@
 	}
 
 	window.VizLine = {
+		hideControls: function (manager) {
+			setControlsVisible(manager, false);
+		},
 		draw: function (p, manager, ai, progress) {
 		const data = manager.data || [];
 		const offsetX = manager.offsetX || 80;
