@@ -68,20 +68,30 @@
         },
 
         draw: function (p, manager, ai, progress) {
-            try { console.log('Renderer: delegating draw, ai=', ai); } catch (e) { }
-
-            // Hide year-comparison controls whenever we are NOT on step 3
+            // Hide controls that belong to other steps
             if (ai !== 3 && window.VizLine && window.VizLine.hideControls) {
                 window.VizLine.hideControls(manager);
             }
+            if (ai !== 6 && window.VizCohort && window.VizCohort.hideControls) {
+                window.VizCohort.hideControls(manager);
+            }
 
-            if (ai === 0) { window.VizTitle.draw(p, manager, ai, progress); return; }
-            if (ai === 1) { window.VizLine.draw(p, manager, ai, progress); return; }
-            if (ai === 2) { window.VizLine.draw(p, manager, ai, progress); return; }
-            if (ai === 3) { window.VizLine.draw(p, manager, ai, progress); return; }
-            if (ai === 4) { window.VizBar.draw(p, manager, ai, progress); return; }
-            if (ai === 5) { window.VizScatter.draw(p, manager, ai, progress); return; }
-            if (ai === 6) { window.VizLine.draw(p, manager, ai, progress); return; }
+            // Safety: wrap every dispatch in try/catch so a bug in one viz
+            // never crashes the p5 draw loop and breaks all other vizzes.
+            try {
+                if (ai === 0) { window.VizTitle.draw(p, manager, ai, progress); return; }
+                if (ai === 1) { window.VizLine.draw(p, manager, ai, progress); return; }
+                if (ai === 2) { window.VizLine.draw(p, manager, ai, progress); return; }
+                if (ai === 3) { window.VizLine.draw(p, manager, ai, progress); return; }
+                if (ai === 4) { window.VizBar.draw(p, manager, ai, progress); return; }
+                if (ai === 5) { window.VizScatter.draw(p, manager, ai, progress); return; }
+                if (ai === 6) { window.VizCohort.draw(p, manager, ai, progress); return; }
+                // ai === 7 and beyond: show a blank white canvas (thanks screen etc.)
+                p.background(255);
+            } catch (e) {
+                console.error('Renderer.draw error at ai=' + ai, e);
+                p.background(255);
+            }
         }
     };
 })();
