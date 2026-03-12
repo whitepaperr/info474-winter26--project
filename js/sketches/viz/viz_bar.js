@@ -115,9 +115,13 @@
         const by = Math.min(y, y0line);
         const bh = Math.abs(y0line - y);
 
-        // color by sign (same hue, different alpha)
+        // Colorblind-safe diverging: orange (#E07020) positive, blue (#2166AC) negative
         p.noStroke();
-        p.fill(60, 60, 60, v >= 0 ? 210 : 90);
+        if (v >= 0) {
+          p.fill(224, 112, 32, 220); // orange
+        } else {
+          p.fill(33, 102, 172, 200); // blue
+        }
         p.rect(x - barW / 2, by, barW, bh);
       }
 
@@ -146,6 +150,19 @@
         p.noStroke();
         p.text(String(years[idx]), xx, py + ch + 8);
       }
+
+      p.noStroke();
+      p.fill(33, 102, 172, 200);
+      p.rect(px, py + ch + 36, 14, 14, 3);
+      p.fill(0);
+      p.textAlign(p.LEFT, p.CENTER);
+      p.textSize(12);
+      p.text('Debt grew slower than tuition', px + 20, py + ch + 43);
+
+      p.fill(224, 112, 32, 220);
+      p.rect(px + 220, py + ch + 36, 14, 14, 3);
+      p.fill(0);
+      p.text('Debt grew faster than tuition', px + 240, py + ch + 43);
 
       // hover tooltip
       const mx = p.mouseX, my = p.mouseY;

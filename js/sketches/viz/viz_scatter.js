@@ -67,6 +67,24 @@
         return clamp(a / maxAbs, 0, 1);
       }
 
+      function heatColor(t) {
+        const stops = [
+          [255, 247, 228],
+          [65,  182, 196],
+          [44,  127, 184],
+          [8,   29,  88]
+        ];
+        const scaled = t * (stops.length - 1);
+        const lo = Math.floor(scaled);
+        const hi = Math.min(lo + 1, stops.length - 1);
+        const f  = scaled - lo;
+        return [
+          Math.round(stops[lo][0] + f * (stops[hi][0] - stops[lo][0])),
+          Math.round(stops[lo][1] + f * (stops[hi][1] - stops[lo][1])),
+          Math.round(stops[lo][2] + f * (stops[hi][2] - stops[lo][2]))
+        ];
+      }
+
       const bandW = cw / n;
       const rowH = ch / 2;
 
@@ -90,15 +108,15 @@
 
         // tuition row
         const it = intensity(tVals[i]);
-        const g1 = Math.round(245 - it * 170);
+        const c1 = heatColor(it);
         p.noStroke();
-        p.fill(g1);
+        p.fill(c1[0], c1[1], c1[2]);
         p.rect(x, py, bandW, rowH);
 
         // debt row
         const id = intensity(dVals[i]);
-        const g2 = Math.round(245 - id * 170);
-        p.fill(g2);
+        const c2 = heatColor(id);
+        p.fill(c2[0], c2[1], c2[2]);
         p.rect(x, py + rowH, bandW, rowH);
 
         // subtle separators
@@ -127,8 +145,8 @@
 
       for (let i = 0; i < 50; i++) {
         const t = i / 49;
-        const g = Math.round(245 - t * 170);
-        p.fill(g);
+        const c = heatColor(t);
+        p.fill(c[0], c[1], c[2]);
         p.rect(lx + 8 + i * 2.7, ly + 10, 3, 10);
       }
       p.fill(30);
