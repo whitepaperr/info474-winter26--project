@@ -5,6 +5,20 @@
   <title>Scrolling Sections</title>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <style>
+    .step .analysis {
+      margin-top: 10px;
+      padding: 8px 10px;
+      border-left: 3px solid #2166AC;
+      background: #f5f8ff;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #444;
+    }
+    .step .analysis b {
+      color: #2166AC;
+    }
+  </style>
 </head>
 
 <body>
@@ -12,48 +26,54 @@
     <div id='graphic'>
       <div id='sections'>
         <section class="step" data-active-index="0">
-          <div class="title">Rising Tuition, Rising Debt</div>
-          This is our INFO 474 final project: interactive article using P5.js.<br /><br />
-          <p>
+          <div class="title">The Price of a Degree</div>
           <p>
             College is often described as an investment in the future. But over the past two decades, the cost of that investment has grown dramatically — and the debt students carry has grown even faster.
           </p>
           <p>
             In this interactive article, we use real national data from NCES and FRED to trace how tuition and student loan debt have changed since 2006, and what those numbers mean for students today.
           </p>
+          <p>
+            <b>By Ariel, An &amp; Tony</b> · INFO 474 Final Project
+          </p>
         </section>
         <section class="step" data-active-index="1">
           <div class="title">Tuition over time</div>
-          Public and private 4-year tuition both rise over time. We also plot the average to show the overall trend.
-          Hover to see exact values by year.
+          <p>Public and private 4-year tuition have both climbed steadily since 2006. The average line shows the overall trend. Hover over any year to see exact values.</p>
+          <p class="analysis"><b>What the data shows:</b> Public tuition has nearly doubled since 2006, while private tuition grew even more steeply in 2023. The gap between public and private has widened significantly, meaning the "type" of school you attend increasingly determines your financial burden.</p>
         </section>
         <section class="step" data-active-index="2">
           <div class="title">Average tuition vs Total student loan debt</div>
-          Here, we compare the average tuition trend with total U.S. student loan debt.
-          Note the different units on the left vs right axis.
+          <p>Here we compare the average tuition trend with total U.S. student loan debt. Note the different scales on each axis - tuition is in dollars, debt in billions.</p>
+          <p class="analysis"><b>What the data shows:</b> While average tuition roughly doubled, total student debt grew from ~$500B to over $1.7 trillion, a >200% increase. Debt has consistently outpaced tuition, suggesting students are borrowing far beyond tuition alone. Living costs, fees, and interest accumulation all contribute to the widening gap.</p>
         </section>
         <section class="step" data-active-index="3">
           <div class="title">Year Comparison</div>
-          Instead of reading every point on the time series, this view summarizes the change between two years.
-          Select the start/end years. It shows the values for both years and the percent increase from start to end.
+          <p>Select any two years to compare tuition and debt side by side, with the percent change between them.</p>
+          <p class="analysis"><b>What the data shows:</b> From 2006 to 2023, public tuition rose ~86%, private ~94%, and average tuition ~93%, but total student debt skyrocketed ~232%. That's more than twice the rate of tuition growth.</p>
         </section>
         <section class="step" data-active-index="4">
           <div class="title">Which grew faster? (index gap)</div>
-          This chart shows the difference between debt growth and average tuition growth each year (index-based).
-          Values above zero mean debt grew faster than tuition.
+          <p>This chart indexes both debt and average tuition to 100 at the start year, then shows the difference each year. Orange bars mean debt grew faster; blue means tuition grew faster.</p>
+          <p class="analysis"><b>What the data shows:</b> Debt outpaced tuition every single year in the dataset. By 2022, the debt index was nearly 200 points ahead of the tuition index, a gap that shows no sign of closing.</p>
         </section>
         <section class="step" data-active-index="5">
           <div class="title">YoY Change Heatmap</div>
-          Darker cells mean larger year-over-year changes. This helps spot periods with especially large shifts.
-          Hover a year to see the exact YoY values.
+          <p>Darker cells mean larger year-over-year percent changes. Top row is tuition; bottom row is debt. Hover any column to see exact values.</p>
+          <p class="analysis"><b>What the data shows:</b> The early 2010s stand out clearly, the dark navy cells in the debt row reflect double-digit annual increases during the post-recession enrollment surge. Tuition growth has been steadier and more gradual by comparison. Since around 2015, debt growth has slowed but has never dipped below tuition growth in any single year.</p>
         </section>
         <div id="extra-space"></div>
         <section class="step" data-active-index="6">
           <div class="title">Your College Cohort</div>
-          Pick the year you graduated (or plan to graduate). This chart highlights your four years on the tuition timeline and shows what you actually paid, what national student debt looked like when you walked across the stage, and how much it grew while you were in school.
+          <p>Pick your graduation year to see your cohort's slice of this story, tuition when you enrolled, your estimated 4-year cost, and how national debt shifted while you were in school.</p>
+          <p class="analysis"><b>What the data shows:</b> Students who graduated in 2023 faced an estimated $43K in average tuition over four years,  roughly 65% more than the 2009 cohort. National debt grew another 10-15% during most 4-year windows. The further back you go, the more dramatic the contrast with today's numbers feels.</p>
         </section>
         <section class="step" data-active-index="7">
-          <div class="title">Thanks!</div>
+          <div class="title">What the data tells us</div>
+          <p>Tuition has risen sharply over the past two decades, but student loan debt has grown more than twice as fast. The gap isn't just about price increases; it reflects how Americans finance higher education, how interest compounds over time, and how the financial burden has shifted increasingly onto students themselves.</p>
+          <p>The trend is consistent across every visualization: debt grows faster than tuition, every year, without exception. Whether you enrolled in 2006 or 2023, you entered a system where borrowing was almost inevitable, and where the total cost of a degree extended well beyond the tuition bill.</p>
+          <p>What can change this? Policy reforms like income-driven repayment, tuition freezes, or expanded grants could slow the divergence. But until the structural relationship between cost and borrowing shifts, the gap will likely keep widening for the next generation of students.</p>
+          <p><b>Thanks for reading.</b> — Ariel, An &amp; Tony · INFO 474 Final Project</p>
         </section>
       </div>
       <div id='vis' class='vis-hidden'>
